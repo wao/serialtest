@@ -3,9 +3,9 @@
 import serial
 import sys
 
-ser = serial.Serial(port=sys.argv[1], baudrate=int(sys.argv[2]), bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=0, rtscts=0)
+ser = serial.Serial(port=sys.argv[1], baudrate=int(sys.argv[2]), bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=0, rtscts=1)
 
-expect_buf = bytes([i for i in range(1,255)])
+expect_buf = bytes([i for i in range(0,255)])
 
 expect_offset = 0
 buf_len = len(expect_buf)
@@ -25,10 +25,10 @@ while True:
 
     i = 0
     while i < len(buf):
-        if buf[i] == 0:
-            print( "skip 0" )
-            i += 1
-            continue
+        #if buf[i] == 0:
+        #    print( "skip 0" )
+        #    i += 1
+        #    continue
 
         if buf[i] != expect_buf[expect_offset]:
             print( "expect %d, but got %d" % ( expect_buf[expect_offset], buf[i] ) )

@@ -3,9 +3,9 @@
 import serial
 import sys
 
-ser = serial.Serial(port=sys.argv[1], baudrate=int(sys.argv[2]), bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=0, rtscts=0)
+ser = serial.Serial(port=sys.argv[1], baudrate=int(sys.argv[2]), bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=0, rtscts=1)
 
-buf = bytes([i for i in range(1,255)])
+buf = bytes([i for i in range(0,255)])
 
 total_pkt_cnt = 0
 
