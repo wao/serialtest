@@ -3,7 +3,7 @@
 import serial
 import sys
 
-ser = serial.Serial(port=sys.argv[1], baudrate=int(sys.argv[2]), bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=0, rtscts=1)
+ser = serial.Serial(port=sys.argv[1], baudrate=int(sys.argv[2]), bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=0, rtscts=True)
 
 buf = bytes([i for i in range(0,255)])
 
